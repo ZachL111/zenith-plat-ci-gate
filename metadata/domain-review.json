@@ -1,0 +1,73 @@
+{
+  "repo": "zenith-plat-ci-gate",
+  "language": "Java",
+  "category": "Platform engineering",
+  "goal": "Package a Java local lab for ci analysis with bounded scenario files, conflict explanations, and documented operating limits.",
+  "review_model": {
+    "terms": [
+      "rollout width",
+      "quota pressure",
+      "route drift",
+      "secret scope"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "rollout width",
+      "signal": 46,
+      "slack": 23,
+      "drag": 13,
+      "confidence": 70,
+      "score": 146,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "quota pressure",
+      "signal": 64,
+      "slack": 37,
+      "drag": 8,
+      "confidence": 88,
+      "score": 229,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "route drift",
+      "signal": 58,
+      "slack": 51,
+      "drag": 31,
+      "confidence": 68,
+      "score": 142,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "secret scope",
+      "signal": 55,
+      "slack": 28,
+      "drag": 16,
+      "confidence": 63,
+      "score": 153,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "rollout width",
+      "signal": 78,
+      "slack": 22,
+      "drag": 16,
+      "confidence": 62,
+      "score": 192,
+      "lane": "ship"
+    }
+  ]
+}
